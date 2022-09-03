@@ -1,0 +1,4 @@
+- create ```requirements.txt```
+- run ```pip install -r requirements.txt```
+- ```django-admin startproject django_portal```
+- ```django-admin startapp blog```
