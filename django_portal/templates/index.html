@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for post in entries %}
+<div class="card" style="width: 100%;">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.text}}</p>
+    <a href="#" class="btn btn-primary">knopka</a>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
