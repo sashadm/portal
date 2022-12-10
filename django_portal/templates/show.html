@@ -8,11 +8,13 @@
   </div>
 </div>
 <br>
-<form method="post" action="/post/{{post.id}}">
+{% if user.is_authenticated %}
+<form method="post" action={% url "post" post.id %}>
     {% csrf_token %}
      {{form.as_p}}
   <input type="submit" value="safe"/>
 </form>
+{% endif %}
 {% for comment in page_obj %}
 <hr>
 <b>{{comment.created_at}}</b>

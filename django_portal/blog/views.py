@@ -2,12 +2,14 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import BlogEntry
 from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     entries = BlogEntry.objects.all()
     return render(request, 'index.html', {'entries': entries})
 
 
+@login_required
 def show_post(request,id):
     post = get_object_or_404(BlogEntry, id=id)
     comments = post.comments.all()
