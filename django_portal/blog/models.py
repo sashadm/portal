@@ -30,3 +30,5 @@ class Comment(models.Model):
         return f'{self.created_at.strftime("%d-%m-%Y %H:%M ")}  {self.post} -> {self.text}'
 
 
+
+

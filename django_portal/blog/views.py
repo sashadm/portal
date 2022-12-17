@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     entries = BlogEntry.objects.all()
+    print(request.user)
     return render(request, 'index.html', {'entries': entries})
 
 
