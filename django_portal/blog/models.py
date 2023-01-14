@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Rubric(models.Model):
@@ -22,6 +23,8 @@ class BlogEntry(models.Model):
 
 
 class Comment(models.Model):
+    user = models.ForeignKey(User, related_name='comments', on_delete=models.DO_NOTHING, null=True)
+    avatar = models.ImageField(upload_to='upload/', null=True)
     text = models.TextField(blank=False)
     post = models.ForeignKey(BlogEntry, related_name='comments', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, null=False)

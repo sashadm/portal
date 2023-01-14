@@ -17,6 +17,8 @@
 {% endif %}
 {% for comment in page_obj %}
 <hr>
+<img src="{{comment.user.profile.avatar.url}}" class="rounded-circle" style="width:100px;"/>
+<b>{{comment.user}}</b>
 <b>{{comment.created_at}}</b>
 <br>
 {{comment.text}}<br>

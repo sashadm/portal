@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from blog.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
-    path('blog/', index),
     path('post/<int:id>', show_post,name='post'),
-]
+    path('', index),
+] +static('media/', document_root=settings.MEDIA_ROOT)
+

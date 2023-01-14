@@ -39,7 +39,8 @@
           <a class="nav-link disabled">Disabled</a>
         </li>
       </ul>
-      {{request.user}}
+      <img src="{{request.user.profile.avatar.url}}" class="rounded-circle" style="width:100px;"/>
+      {{request.user.profile.full_name}}
 <!--      <form class="d-flex" role="search">-->
 <!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
 <!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
