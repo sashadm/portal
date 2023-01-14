@@ -3,7 +3,9 @@
 <div class="card" style="width: 100%;">
   <div class="card-body">
     <h2 class="card-title">{{post.title}}</h2>
+      {% autoescape off %}
     <p class="card-text">{{post.text}}</p>
+      {% endautoescape %}
 <!--    <a href="#" class="btn btn-primary">knopka</a>-->
   </div>
 </div>
