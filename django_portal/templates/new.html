@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $('button').click(function(){
+        $('#id1').fadeToggle();
+        $('#id2').fadeToggle('slow');
+        $('#id3').fadeToggle(3000);
+        });
+        });
+    </script>
+    <meta charset="UTF-8">
+    <title>My blog</title>
+</head>
+<body>
+<button onclick="say_hello();">hello</button>
+<div id="id1" style="width:80px;height:80px;display:none;background-color:red;"></div>
+<br>
+<div id="id2" style="width:80px;height:80px;display:none;background-color:green;"></div>
+<br>
+<div id="id3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+<br>
+</body>
+</html>
