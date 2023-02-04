@@ -11,10 +11,10 @@ def index(request):
 
 
 @login_required
-def show_post(request,id):
+def show_post(request, id):
     post = get_object_or_404(BlogEntry, id=id)
     comments = post.comments.all()
-    paginator = Paginator(comments,3)
+    paginator = Paginator(comments, 3)
     form = None
     if request.method == 'GET':
         form = CommentForm(initial={'post': post})

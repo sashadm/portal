@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from blog.views import *
+from forum import views as forum_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,7 +24,9 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('editor/', include('django_summernote.urls')),
-    path('post/<int:id>', show_post,name='post'),
+    path('post/<int:id>', show_post, name='post'),
+    path('theme/<int:id>', forum_views.show_theme),
+    path('forum/', forum_views.index),
     path('', index),
 ] + static('media/', document_root=settings.MEDIA_ROOT)
 

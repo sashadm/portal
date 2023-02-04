@@ -9,12 +9,12 @@ class ForumSection(models.Model):
 class ForumTheme(models.Model):
     title = models.CharField(max_length=50, null=False)
     created_at = models.DateTimeField(auto_now_add=True, null=False)
-    section = models.ForeignKey(ForumSection, null=True, on_delete=models.SET_NULL)
+    section = models.ForeignKey(ForumSection, related_name='themes', null=True, on_delete=models.SET_NULL)
 
 
 class ForumMessage(models.Model):
     text = models.TextField()
     user = models.ForeignKey(User, related_name='messages', on_delete=models.DO_NOTHING, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=False)
-    theme = models.ForeignKey(ForumTheme, null=True, on_delete=models.SET_NULL)
+    theme = models.ForeignKey(ForumTheme, related_name='messages', null=True, on_delete=models.SET_NULL)
 

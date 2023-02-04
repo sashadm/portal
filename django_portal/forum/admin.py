@@ -11,5 +11,5 @@ class ForumMessageAdmin(SummernoteModelAdmin):
     summernote_fields = ['text']
 
 
-admin.site.register(ForumMessage,ForumMessageAdmin)
+admin.site.register(ForumMessage, ForumMessageAdmin)
 
