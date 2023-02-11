@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+ {% for section in sections %}
+    <div class="card">
+    <h5 class="card-header">{{section.title}}</h5>
+    <div class="card-body">
+        {% for theme in section.themes.all %}
+            <a class="card-text" href="/theme/{{theme.id}}">{{theme.title}}</a>
+        <br>
+        {% endfor %}
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

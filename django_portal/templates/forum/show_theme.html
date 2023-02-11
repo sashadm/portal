@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for message in theme.messages.all %}
+    <div class="card">
+    <h5 class="card-header">{{message.user}} {{message.created_at}}</h5>
+    <div class="card-body">
+        {% autoescape off %}
+        <p class="card-text">{{message.text}}</p>
+        {% endautoescape %}
+        <br>
+  </div>
+    </div>
+{% endfor %}
+<br>
+    {% if user.is_authenticated %}
+   <form method="post" action={% url "theme" theme.id %}>
+    {% csrf_token %}
+     {{form.as_p}}
+  <input type="submit" value="safe"/>
+</form>
+{% endif %}
+{% endblock %}
