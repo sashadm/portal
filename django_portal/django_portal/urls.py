@@ -25,11 +25,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('editor/', include('django_summernote.urls')),
     path('post/<int:id>', show_post, name='post'),
+    path('json_post/<int:id>', show_post_json, name='json_post'),
     path('theme/<int:id>', forum_views.show_theme, name='theme'),
     path('forum/', forum_views.index),
     path('', index),
 ] + static('media/', document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static('static/', document_root=settings.STATIC_ROOT)
 
 

@@ -2,7 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from .models import BlogEntry
 from .forms import CommentForm
+from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.core import serializers
+
 
 def index(request):
     entries = BlogEntry.objects.all()
@@ -27,3 +30,8 @@ def show_post(request, id):
         if form.is_valid():
             form.save()
     return redirect(f'/post/{id}')
+
+
+def show_post_json(request, id):
+    post = get_object_or_404(BlogEntry, id=id)
+    return JsonResponse({'post': serializers.serialize('json', [post])})

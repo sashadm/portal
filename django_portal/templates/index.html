@@ -4,7 +4,9 @@
 <div class="card" style="width: 100%;">
   <div class="card-body">
     <h5 class="card-title">{{post.title}}</h5>
+    {% autoescape off %}
     <p class="card-text">{{post.text}}</p>
+      {% endautoescape %}
     <a href="/post/{{post.id}}" class="btn btn-primary">read</a>
  </div>
 </div>
