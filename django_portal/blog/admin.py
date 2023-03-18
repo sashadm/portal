@@ -17,5 +17,5 @@ class BlogEntryAdmin(SummernoteModelAdmin):
     summernote_fields = ['text']
 
 
-admin.site.register(BlogEntry,BlogEntryAdmin)
+admin.site.register(BlogEntry, BlogEntryAdmin)
 
