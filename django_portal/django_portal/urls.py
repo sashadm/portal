@@ -28,6 +28,7 @@ urlpatterns = [
     path('json_post/<int:id>', show_post_json, name='json_post'),
     path('theme/<int:id>', forum_views.show_theme, name='theme'),
     path('forum/', forum_views.index),
+    path('shop/', include('shop.urls')),
     path('', index),
 ] + static('media/', document_root=settings.MEDIA_ROOT)
 

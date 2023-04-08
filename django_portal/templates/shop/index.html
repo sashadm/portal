@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for section in sections %}
+<a href="/shop/section/{{section.id}}">
+   {{ section.title }}
+   </a>
+{% endfor %}
+{% endblock %}

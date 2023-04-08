@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'profiles',
     'forum',
     'shop',
+    'cart',
 
 ]
 
@@ -136,3 +137,4 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/blog/'
+CART_SESSION_ID = 'cart_id'
