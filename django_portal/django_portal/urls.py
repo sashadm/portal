@@ -29,6 +29,7 @@ urlpatterns = [
     path('theme/<int:id>', forum_views.show_theme, name='theme'),
     path('forum/', forum_views.index),
     path('shop/', include('shop.urls')),
+    path('cart/', include('cart.urls')),
     path('', index),
 ] + static('media/', document_root=settings.MEDIA_ROOT)
 

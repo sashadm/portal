@@ -1,5 +1,6 @@
 from django.conf import settings
-from django_portal.shop.models import Product
+from shop.models import Product
+from decimal import Decimal
 
 
 class Cart(object):
@@ -9,6 +10,16 @@ class Cart(object):
         if not cart:
             cart = self.session[settings.CART_SESSION_ID] = {}
         self.cart = cart
+
+    def __iter__(self):
+        product_ids = self.cart.keys()
+        products = Product.objects.filter(id__in=product_ids)
+        for product in products:
+            self.cart[str(product.id)]['product'] = product
+        for item in self.cart.values():
+            item['price'] = Decimal(item['price'])
+            item['total_price'] = item['price']*item['quantity']
+            yield item
 
     def add(self, product, quantity=1):
         product_id = str(product.id)
