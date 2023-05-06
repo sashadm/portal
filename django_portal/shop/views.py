@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
+from cart.forms import CartAddProductForm
 
 
 def index(request):
@@ -21,8 +22,9 @@ def show_rubric(request, id):
 
 def show_product(request, id):
     product = get_object_or_404(Product, id=id)
+    cart_product_form = CartAddProductForm()
     if request.method == 'GET':
-        return render(request, 'shop/product.html', {'product': product})
+        return render(request, 'shop/product.html', {'product': product, 'cart_product_form': cart_product_form})
 
 
 
